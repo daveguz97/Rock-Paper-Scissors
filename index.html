@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h1>Rock Paper Scissors</h1>
+        <p>Make sure to check the console to see the results</p>
+        <script>
+          const rockPaperScissors = ['Rock', 'Paper', 'Scissors'];
+
+          const computerPlay = () => {
+            //   Returns the computer moves
+            let computerChoice = Math.floor(
+              Math.random() * rockPaperScissors.length
+            );
+            computerMove = rockPaperScissors[computerChoice];
+            return computerMove.toLowerCase();
+          };
+
+          const playerPlay = () => {
+            //   Returns the player move
+            let playersChoice = prompt('Rock Paper or Scissors?').toLowerCase();
+            return playersChoice;
+          };
+
+          const playGame = (
+            playerSelection = playerPlay(),
+            computerSelection = computerPlay()
+          ) => {
+            if (playerSelection === 'rock' && computerSelection === 'paper') {
+              return `Players Move: ${playerSelection}\nComputer Move: ${computerSelection}\n\nYou lose, ${computerSelection} beats ${playerSelection} `;
+            } else if (
+              playerSelection === 'rock' &&
+              computerSelection === 'scissors'
+            ) {
+              return `Players Move: ${playerSelection}\nComputer Move: ${computerSelection}\n\nYou win, ${playerSelection} beats ${computerSelection} `;
+            } else if (
+              playerSelection === 'paper' &&
+              computerSelection === 'scissors'
+            ) {
+              return `Players Move: ${playerSelection}\nComputer Move: ${computerSelection}\n\nYou lose, ${computerSelection} beats ${playerSelection} `;
+            } else if (
+              playerSelection === 'paper' &&
+              computerSelection === 'rock'
+            ) {
+              return `Players Move: ${playerSelection}\nComputer Move: ${computerSelection}\n\nYou win, ${playerSelection} beats ${computerSelection} `;
+            } else if (
+              playerSelection === 'scissors' &&
+              computerSelection === 'paper'
+            ) {
+              return `Players Move: ${playerSelection}\nComputer Move: ${computerSelection}\n\nYou win, ${playerSelection} beats ${computerSelection} `;
+            } else if (
+              playerSelection === 'scissors' &&
+              computerSelection === 'rock'
+            ) {
+              return `Players Move: ${playerSelection}\nComputer Move: ${computerSelection}\n\nYou lose, ${computerSelection} beats ${playerSelection} `;
+            } else if (playerSelection === computerSelection) {
+              return `Players Move: ${playerSelection}\nComputer Move: ${computerSelection}\n\nIt's a tie!`;
+            } else {
+              return 'Undefined Move';
+            }
+          };
+          console.log(playGame());
+        </script>
+      </div>
+    </main>
+  </body>
+</html>
